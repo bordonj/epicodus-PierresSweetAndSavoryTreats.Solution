@@ -1,0 +1,14 @@
+body {
+	background-image: url(https://images.pexels.com/photos/192933/pexels-photo-192933.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+}
+
+.container {
+	background-color: rgba(255, 255, 255, 0.836);
+}
+
+.btn-primary {
+	background-color: rgb(0, 0, 0);
+}
+.btn-primary:hover {
+	background-color: rgb(131, 86, 51);
+}
