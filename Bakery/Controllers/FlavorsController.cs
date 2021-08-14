@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -45,12 +46,14 @@ namespace Bakery.Controllers
         .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(category => category.FlavorId == id);
       return View(thisFlavor);
     }
 
+    
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
     {
@@ -59,6 +62,29 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
+
+    public ActionResult AddTreat(int id)
+    {
+      List <Treat> TreatList = _db.Treats.ToList();
+      ViewBag.TreatList = TreatList;
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      ViewBag.MachineId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View(thisFlavor);
+    }
+
+    [HttpPost]
+    public ActionResult AddTreat(Flavor flavor, int TreatId)
+    {
+      if (TreatId != 0)
+    {
+      _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+    }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(category => category.FlavorId == id);
