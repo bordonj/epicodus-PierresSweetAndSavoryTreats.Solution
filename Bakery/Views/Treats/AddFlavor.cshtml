@@ -1,19 +1,19 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 
-@model Factory.Models.Machine
+@model Bakery.Models.Treat
 
-<h2>Add an Engineer</h2>
+<h2>Add an Flavor</h2>
 
-<h4>Add an Engineer to this task: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Add an Flavor to this task: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.MachineId)
+  @Html.HiddenFor(model => model.TreatId)
 
-  @Html.Label("Select Engineer")
-  @Html.DropDownList("EngineerId")
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
 
   <input class="btn btn-primary" type="submit" value="Save" />
 }
@@ -21,18 +21,18 @@
 
 <p>
   <a
-  asp-controller="Engineers"
+  asp-controller="Flavors"
   asp-action="Create"
   class="btn btn-primary"
   >
-    Create new Engineer
+    Create new Flavor
   </a>
 </p>
 <p>
   <a
-  asp-controller="Machines"
+  asp-controller="Treats"
   asp-action="Details"
-  asp-route-id="@Model.MachineId"
+  asp-route-id="@Model.TreatId"
   class="btn btn-primary"
   >
     Back to [@(Model.Name)] Details
@@ -40,10 +40,10 @@
 </p>
 <p>
   <a
-  asp-controller="Machines"
+  asp-controller="Treats"
   asp-action="Index"
   class="btn btn-primary"
   >
-    Back to Machines
+    Back to Treats
   </a>
-</p> *@
+</p>
