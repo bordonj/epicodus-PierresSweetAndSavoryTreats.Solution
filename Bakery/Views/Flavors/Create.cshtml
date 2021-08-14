@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor
+
+<h4>Add a new Flavor</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <input class="btn btn-primary" type="submit" value="Add new Flavor" />
+}
+<p>
+  <a href='javascript:history.go(-1)' class="btn btn-primary">Go Back to Previous Page</a>
+</p>
+<p>
+  <a
+  asp-controller="Flavors"
+  asp-action="Index"
+  class="btn btn-primary"s
+  >
+    <i class="bi bi-house-fill"></i> Flavors
+  </a>
+</p>
