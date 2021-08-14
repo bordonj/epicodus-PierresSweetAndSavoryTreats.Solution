@@ -69,7 +69,7 @@ namespace Bakery.Controllers
       List <Treat> TreatList = _db.Treats.ToList();
       ViewBag.TreatList = TreatList;
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
-      ViewBag.MachineId = new SelectList(_db.Treats, "TreatId", "Name");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
       return View(thisFlavor);
     }
 
