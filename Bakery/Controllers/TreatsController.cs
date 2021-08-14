@@ -65,7 +65,7 @@ namespace Bakery.Controllers
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      ViewBag.CategoryId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
       return View(thisTreat);
     }
 
@@ -82,7 +82,7 @@ namespace Bakery.Controllers
     }
 
     [Authorize]
-    public ActionResult AddCategory(int id)
+    public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.CategoryId = new SelectList(_db.Flavors, "FlavorId", "Name");
