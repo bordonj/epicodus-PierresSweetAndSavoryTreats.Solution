@@ -46,7 +46,7 @@ namespace Bakery.Controllers
       _db.SaveChanges();
       if (FlavorId != 0)
       {
-          _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -55,9 +55,9 @@ namespace Bakery.Controllers
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treats
-          .Include(treat => treat.JoinEntities)
-          .ThenInclude(join => join.Flavor)
-          .FirstOrDefault(item => item.TreatId == id);
+        .Include(treat => treat.JoinEntities)
+        .ThenInclude(join => join.Flavor)
+        .FirstOrDefault(item => item.TreatId == id);
       return View(thisTreat);
     }
 

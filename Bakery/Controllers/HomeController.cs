@@ -5,23 +5,22 @@ using System.Linq;
 
 namespace Bakery.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    private readonly BakeryContext _db;
+    public HomeController(BakeryContext db)
     {
-      private readonly BakeryContext _db;
-      public HomeController(BakeryContext db)
-      {
-        _db = db;
-      }
+      _db = db;
+    }
 
-      [HttpGet("/")]
-      public ActionResult Index()
-      {
+    [HttpGet("/")]
+    public ActionResult Index()
+    {
       List<Flavor> FlavorList = _db.Flavors.ToList();
       List<Treat> TreatList = _db.Treats.ToList();
       ViewBag.Flavors = FlavorList;
       ViewBag.Treats = TreatList;
-        return View();
-      }
-
+      return View();
     }
+  }
 }

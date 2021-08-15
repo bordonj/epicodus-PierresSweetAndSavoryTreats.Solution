@@ -37,7 +37,6 @@ namespace Bakery.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors
@@ -52,7 +51,6 @@ namespace Bakery.Controllers
       var thisFlavor = _db.Flavors.FirstOrDefault(category => category.FlavorId == id);
       return View(thisFlavor);
     }
-
     
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
@@ -63,7 +61,6 @@ namespace Bakery.Controllers
     }
 
     [Authorize]
-
     public ActionResult AddTreat(int id)
     {
       List <Treat> TreatList = _db.Treats.ToList();
