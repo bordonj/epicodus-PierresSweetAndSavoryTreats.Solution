@@ -13,10 +13,10 @@
   @Html.HiddenFor(model => model.FlavorId)
 
   @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+  @Html.EditorFor(model => model.Name, new { @required = true })
 
   @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
+  @Html.EditorFor(model => model.Description, new { @required = true })
 
   <input class="btn btn-info" type="submit" value="Save" />
 }
